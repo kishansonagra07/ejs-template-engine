@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+  <head>
+<%- include("./../common/menu.ejs") %>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+      <a class="navbar-brand" href="/">Navbar</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item <% if (page === 'home') { %> active <% } %>">
+            <a class="nav-link" href="/index">Home</a>
+          </li>
+          <li class="nav-item <% if (page === 'about') { %> active <% } %>">
+            <a class="nav-link" href="/about">About</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <main role="main">
+
+      <div class="jumbotron">
+        <div class="container">
+          <h1 class="display-3">Hello, world!</h1>
+          <p><%= tagline %></p>
+          <p><a class="btn btn-primary btn-lg" href="/about" role="button">Learn more &raquo;</a></p>
+        </div>
+      </div>
+
+      <div class="container">
+        <div class="row">
+                <% content.forEach(function(row) { %>
+          <div class="col-md-4">
+            <h2><%= row.name %></h2>
+            <p style="white-space: pre-line;"><%= row.description %></p>
+            <p><a class="btn btn-secondary" href="/about" role="button">View details &raquo;</a></p>
+          </div>
+          <% }); %>
+        </div>
+
+        <hr>
+
+      </div> 
+
+    </main>
+    <%- include("./../common/footer.ejs") %>
+  </body>
+</html>
